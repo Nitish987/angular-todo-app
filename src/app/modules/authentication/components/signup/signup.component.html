@@ -1,0 +1,25 @@
+<form class="signup-form" [formGroup]="signupForm" (ngSubmit)="startSignup()">
+    <h1>Signup</h1>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Name" type="text" formControlName="name">
+        <mat-icon matSuffix>account_circle</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" type="email" formControlName="email">
+        <mat-icon matSuffix>email</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="Password" type="password" formControlName="password">
+        <mat-icon matSuffix>password</mat-icon>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary">Signup</button>
+    <br>
+    <a mat-stroked-button color="primary" routerLink="/auth/login">Already have an account</a>
+</form>

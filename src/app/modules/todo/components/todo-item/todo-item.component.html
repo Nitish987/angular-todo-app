@@ -1,0 +1,17 @@
+<div class="task-item" *ngIf="!isDeleted else: deletedSection">
+    <div class="task-item-content">
+        <span>{{todo!.title}}</span>
+        <span>{{todo!.description}}</span>
+    </div>
+    <div class="task-item-options">
+        <mat-checkbox [checked]="todo!.isCompleted" (change)="markComplete(!todo!.isCompleted)"></mat-checkbox>
+        <button mat-icon-button (click)="editTask()">
+            <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button (click)="deleteTask()">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </div>
+</div>
+
+<ng-template #deletedSection></ng-template>

@@ -1,0 +1,59 @@
+<div *ngIf="taskAdderVisibility === 'true'">
+    <div class="task-block">
+        <form class="add-task-form" [formGroup]="taskForm" (ngSubmit)="addTask()">
+            <h1>Add Task</h1>
+        
+            <mat-form-field appearance="outline">
+                <mat-label>Title</mat-label>
+                <input matInput placeholder="Title" type="text" formControlName="title">
+                <mat-icon matSuffix>text</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Description</mat-label>
+                <input matInput placeholder="Description" type="text" formControlName="description">
+                <mat-icon matSuffix>text</mat-icon>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary">Add Task</button>
+        </form>
+    </div>  
+</div>
+
+<div class="task-block">
+    <h1>My Task</h1>
+
+    <div *ngIf="todos.length !== 0 else: noTodos">
+        <div class="todo-list">
+            <app-todo-item *ngFor="let todo of todos" [todo]="todo" (editTaskEmitter)="setTaskToEdit($event)"/>
+        </div>
+    </div>
+
+    <ng-template #noTodos>
+        <span>No Task Found. Create One.</span>
+    </ng-template>
+</div>
+
+<div *ngIf="editTodo !== null" class="edit-task-dialog-container">
+    <div class="edit-task-dialog task-block">
+        <form class="add-task-form" [formGroup]="editTaskForm" (ngSubmit)="editTask()">
+            <h1>Edit Task</h1>
+        
+            <mat-form-field appearance="outline">
+                <mat-label>Title</mat-label>
+                <input matInput placeholder="Title" type="text" formControlName="title">
+                <mat-icon matSuffix>text</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Description</mat-label>
+                <input matInput placeholder="Description" type="text" formControlName="description">
+                <mat-icon matSuffix>text</mat-icon>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary">Update Task</button>
+            <br>
+            <button mat-stroked-button color="primary" (click)="cancelTaskToEdit()">Cancel</button>
+        </form>
+    </div>
+</div>

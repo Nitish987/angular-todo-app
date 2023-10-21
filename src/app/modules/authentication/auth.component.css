@@ -1,0 +1,35 @@
+.auth-screen {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-banner {
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0px 0px 10px grey;
+    border-radius: 20px;
+}
+
+.auth-banner-left,
+.auth-banner-right {
+    width: 400px;
+    height: 400px;
+}
+
+.auth-banner-left img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.auth-banner-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-inline: 20px;
+}
